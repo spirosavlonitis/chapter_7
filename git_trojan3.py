@@ -58,7 +58,6 @@ class Foo():
 
         module = imp.new_module(name)
         exec(self.current_module_code, module.__dict__) # add module code
-        #print(module.__dict__['run']())
         sys.modules[name] = module
 
         return module
