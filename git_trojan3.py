@@ -74,8 +74,6 @@ class Foo():
                 self.load_module(task['module'])
                 exec(f"import {task['module']}")
 
-        return config_json
-
 # configure end
 
     def store_module_result(self, result, module_name):
