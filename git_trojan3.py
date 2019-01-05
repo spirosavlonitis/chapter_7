@@ -79,7 +79,7 @@ class Foo():
     def store_module_result(self, result, module_name):
         """Push result to github"""
         self.connect_to_github()
-        data_path = f"data/{self.id}/{round(time.time())}.data"
+        data_path = f"data/{self.id}/{module_name}_{round(time.time())}.data"
         self.repo.create_file(data_path, module_name, base64.b64encode(result.encode()))
 
     def module_runner(self, module):
