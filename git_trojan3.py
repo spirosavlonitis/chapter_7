@@ -88,7 +88,6 @@ class Foo():
         result = sys.modules[module].run()
 
         self.store_module_result(result, module)
-        return
 
 def main(argc, argv):
     troj = Foo()
