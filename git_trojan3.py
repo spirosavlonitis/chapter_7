@@ -93,9 +93,7 @@ def main(argc, argv):
     troj = Foo()
 
     while True:
-        if troj.task_queue.empty():
-            troj.configure()
-
+        troj.configure()
         for task in troj.config_json:
             Thread(target=troj.module_runner, args=(task['module'],)).start()
             time.sleep(randint(1, 10))
