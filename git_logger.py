@@ -12,7 +12,7 @@ from queue import Queue
 # dynamic import start
 try:
     from github3 import login
-except ModuleNotFoundError as e:
+except Exception as e:
     try:
         subprocess.check_output("python -m pip install github3.py --user", shell=True)
         from github3 import login
@@ -20,7 +20,7 @@ except ModuleNotFoundError as e:
         raise e
 try:
     import pyxhook
-except ModuleNotFoundError as e:
+except Exception as e:
     try:
         subprocess.check_output("python -m pip install pyxhook --user", shell=True)
         import pyxhook
